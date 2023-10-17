@@ -38,22 +38,22 @@ h3 {
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 3.3rem;
 }
 
 @media (min-width: 768px) {
   h1 {
-    font-size: 4.8rem;
+    font-size: 3.5rem;
   }
 }
 
 h2 {
-  font-size: 3.2rem;
+  font-size: 3rem;
 }
 
 @media (min-width: 768px) {
   h2 {
-    font-size: 3.8rem;
+    font-size: 3.2rem;
   }
 }
 
@@ -94,7 +94,7 @@ img {
 }
 
 section {
-  padding: 4rem 0 0;
+  padding: 4rem 0 2rem;
 }
 
 [class$="__contenedor"] {
@@ -106,15 +106,52 @@ section {
 [class$="__titulo"] {
   display: flex;
   flex-direction: column;
-  text-align: center;
+  text-align: left;
   font-weight: 500;
   margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  [class$="__titulo"] {
+    text-align: center;
+  }
 }
 
 [class$="__titulo--red"] {
   font-size: 1.8rem;
   font-weight: 400;
   color: var(--rojo);
+}
+
+[class$="__parrafo"] {
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+@media (min-width: 768px) {
+  [class$="__parrafo"] {
+    font-size: 1.8rem;
+  }
+}
+
+[class$="__btn"] {
+  display: inline-block;
+  padding: 1rem 3rem;
+  text-align: left;
+  font-weight: 400;
+  color: var(--white);
+  background-color: var(--rojo);
+  border-radius: 0.5rem;
+  transition: 0.4s all ease-in-out;
+}
+
+[class$="__btn"]:active {
+  background-color: #a80e27;
+}
+@media (hover: hover) {
+  [class$="__btn"]:hover {
+    background-color: #a80e27;
+  }
 }
 
 .header {
@@ -290,13 +327,6 @@ section {
 .hero__titulo {
   display: inline;
   font-weight: 700;
-  font-size: 3.2rem;
-}
-
-@media (min-width: 992px) {
-  .hero__titulo {
-    font-size: 3.5rem;
-  }
 }
 
 .hero__titulo--red {
@@ -305,40 +335,12 @@ section {
   color: var(--rojo);
 }
 
-.hero__parrafo {
-  font-size: 1.5rem;
-  font-weight: 300;
-}
-
-@media (min-width: 992px) {
-  .hero__parrafo {
-    font-size: 1.7rem;
-  }
-}
-
-.hero__btn {
-  display: inline-block;
-  padding: 1rem 3rem;
-  text-align: left;
-  font-weight: 400;
-  color: var(--white);
-  background-color: var(--rojo);
-  border-radius: 0.5rem;
-  transition: 0.4s all ease-in-out;
-}
-
-.hero__btn:active {
-  background-color: #a80e27;
-}
-@media (hover: hover) {
-  .hero__btn:hover {
-    background-color: #a80e27;
-  }
-}
-
 /* Categorias */
-.categorias__parrafo {
-  text-align: center;
+
+@media (min-width: 768px) {
+  .categorias__parrafo {
+    text-align: center;
+  }
 }
 
 .categorias__grid {
@@ -378,7 +380,7 @@ section {
   font-size: 1.5rem;
   background-color: var(--white);
   padding: 0.8rem;
-  transition: .5s;
+  transition: 0.5s;
   border-radius: 0.5rem;
 }
 
@@ -386,5 +388,25 @@ section {
   .categoria:hover .categoria__titulo {
     color: var(--white);
     background-color: var(--rojo);
+  }
+}
+
+.about {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .about {
+    flex-flow: row;
+  }
+}
+
+@media (min-width: 768px) {
+  .about__titulo {
+    text-align: left;
   }
 }
