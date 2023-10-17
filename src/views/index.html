@@ -35,8 +35,8 @@
         <!-- NavBar -->
         <nav class="nav">
           <a class="nav__link active" href="#inicio">Inicio</a>
-          <a class="nav__link" href="#categorias">Categorías</a>
-          <a class="nav__link" href="#nosotros">Nosotros</a>
+          <a class="nav__link" href="#categories">Categorías</a>
+          <a class="nav__link" href="#about">Nosotros</a>
           <a class="nav__link" href="#cars">Autos</a>
           <a class="nav__link" href="#blog">Blog</a>
         </nav>
@@ -60,13 +60,71 @@
           Tenemos el <span class="hero__titulo--red">auto</span> que necesitas
         </h1>
         <p class="hero__parrafo">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit <br>
-          doloribus, incidunt consectetur veniam explicabo maiores <br> quod libero
-          sed sunt totam reprehenderit pariatur error
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit <br />
+          doloribus, incidunt consectetur veniam explicabo maiores <br />
+          quod libero sed sunt totam reprehenderit pariatur error
         </p>
-        <a class="hero__btn" href="#">Descubrir</a>
+        <a class="hero__btn" href="#categories">Descubrir</a>
       </div>
     </section>
+    <section id="categories" class="categorias categorias__contenedor">
+      <h2 class="categorias__titulo">
+        <span class="categorias__titulo--red"> Todas las categorías</span>
+        Tenemos varias categorías
+      </h2>
+      <p class="categorias__parrafo">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
+        tempore explicabo soluta deleniti. Culpa in, inventore nulla autem
+      </p>
+      <div class="categorias__grid">
+        <div class="categoria">
+          <picture>
+            <source srcset="./assets/img/hb.avif" type="image/avif" />
+            <source srcset="./assets/img/hb.webp" type="image/webp" />
+            <img
+              class="categoria__img"
+              loading="lazy"
+              width="500"
+              height="300"
+              src="./assets/img/hb.jpg"
+              alt=""
+            />
+          </picture>
+          <h2 class="categoria__titulo">Hatchback</h2>
+        </div>
+        <div class="categoria">
+          <picture>
+            <source srcset="./assets/img/sedan.avif" type="image/avif" />
+            <source srcset="./assets/img/sedan.webp" type="image/webp" />
+            <img
+              class="categoria__img"
+              loading="lazy"
+              width="500"
+              height="300"
+              src="./assets/img/sedan.jpg"
+              alt=""
+            />
+          </picture>
+          <h2 class="categoria__titulo">Sedán</h2>
+        </div>
+        <div class="categoria">
+          <picture>
+            <source srcset="./assets/img/sport.avif" type="image/avif" />
+            <source srcset="./assets/img/sport.webp" type="image/webp" />
+            <img
+              class="categoria__img"
+              loading="lazy"
+              width="500"
+              height="300"
+              src="./assets/img/sport.jpg"
+              alt=""
+            />
+          </picture>
+          <h2 class="categoria__titulo">Deportivo</h2>
+        </div>
+      </div>
+    </section>
+    <section></section>
     <!-- 
     <div class="contenedor">
       <form id="buscador">
