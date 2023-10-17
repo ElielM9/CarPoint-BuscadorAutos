@@ -6,6 +6,7 @@
   --rojo: #d90429;
   --black: #020102;
   --white: #fff;
+  --gray: #f6f6f6;
 
   /* Utilidades */
   --separacion: 5rem;
@@ -79,6 +80,7 @@ p {
 }
 
 a {
+  color: var(--black);
   text-decoration: none;
 }
 
@@ -391,6 +393,8 @@ section {
   }
 }
 
+/*  Sobre nosotros */
+
 .about {
   display: flex;
   flex-flow: column;
@@ -410,3 +414,99 @@ section {
     text-align: left;
   }
 }
+
+/* Autos */
+.cars__titulo {
+  text-align: left;
+}
+
+.cars__grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 31rem));
+  gap: 2rem;
+}
+
+.car {
+  position: relative;
+  margin: 0 0.5rem 2rem;
+  background-color: var(--gray);
+  border-radius: 1rem;
+  transition: 0.2s ease;
+  overflow: hidden;
+}
+
+.car__img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.car__year {
+  position: absolute;
+  left: 1rem;
+  bottom: 57%;
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.5rem;
+  width: 6rem;
+  padding: 0.2rem;
+  background-color: var(--white);
+  transition: 0.5s;
+  border-radius: 0.5rem;
+}
+
+.car__content {
+  padding: 1.5rem;
+}
+
+.car__model {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.car__price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  color: var(--rojo);
+  margin: 0;
+}
+.car__price--reviews {
+  font-size: 1.7rem;
+  color: var(--rojo);
+}
+
+.car__character {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.car__icon {
+  font-size: 1.8rem;
+  color: var(--rojo);
+}
+
+.car__btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+}
+
+.car__details {
+  border-bottom: 1px solid transparent;
+  transition: 0.2s all ease-in-out;
+}
+
+.car__details:active {
+  border-bottom: 1px solid var(--rojo);
+  color: var(--rojo);
+}
+
+@media(hover: hover) {
+  .car__details:hover {
+    border-bottom: 1px solid var(--rojo);
+    color: var(--rojo);
+  }   
+ }

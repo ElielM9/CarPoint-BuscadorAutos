@@ -151,9 +151,19 @@
         <a href="#" class="about__btn">Leer más</a>
       </div>
     </section>
-    <!-- 
-    <div class="contenedor">
-      <form id="buscador">
+    <section id="cars" class="cars cars__contenedor">
+      <h2 class="cars__titulo">
+        <span class="cars__titulo--red">Autos</span>Nuestros autos son
+        excelentes
+      </h2>
+      <p class="cars__parrafo">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam animi
+        <br />
+        magnam rem provident mollitia et facere, placeat voluptas
+      </p>
+
+      <!-- 
+      <form id="filtro">
         <div class="row">
           <div class="three columns">
             <label for="marca">Marca</label>
@@ -232,9 +242,47 @@
         </div>
       </form>
 
+      
+    -->
+
       <h1>Resultado</h1>
-      <div id="resultado"></div>
-    </div> -->
+      <div id="results" class="cars__grid">
+        <div class="car">
+          <picture>
+            <img
+              class="car__img"
+              loading="lazy"
+              width="500"
+              height="300"
+              src="./assets/img/hb.jpg"
+              alt=""
+            />
+          </picture>
+          <span class="car__year">2022</span>
+          <div class="car__content">
+            <h2 class="car__model">Seat León FR</h2>
+
+            <p class="car__price">
+              $500,000
+              <i class="bx bxs-star car__price--reviews">(5 Reseñas)</i>
+            </p>
+
+            <p class="car__character">
+              <i class="bx bxs-door-open car__icon"></i>
+              4 Puertas
+            </p>
+            <p class="car__character">
+              <i class="bx bxs-car car__icon"></i>
+              Automática
+            </p>
+            <div class="car__btns">
+              <a href="#" class="car__btn">Comprar</a>
+              <a href="#" class="car__details">Ver detalles</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <footer></footer>
 

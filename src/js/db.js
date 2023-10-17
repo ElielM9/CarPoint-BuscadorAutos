@@ -1,15 +1,16 @@
 const autos = [
   {
-    marca: "BMW",
-    modelo: "Serie 3",
-    year: 2020,
-    precio: 30000,
+    marca: "Seat",
+    modelo: "León FR",
+    year: 2022,
+    precio: 500000,
     puertas: 4,
-    color: "Blanco",
-    transmision: "automatico",
-    imagen: `../FB_IMG_1649999637362.jpg`,
+    color: "Rojo",
+    transmision: `Automática`,
+    imagen: ``,
   },
   {
+    
     marca: "Audi",
     modelo: "A4",
     year: 2020,
