@@ -163,243 +163,82 @@
       </p>
 
       <form id="filtro" class="filtro">
-        <div class="row">
-          <div class="three columns">
-            <label for="marca">Marca</label>
-            <select class="u-full-width" id="marca">
-              <option value="">Seleccione</option>
-              <option value="Audi">Audi</option>
-              <option value="BMW">BMW</option>
-              <option value="Mercedes Benz">Mercedes Benz</option>
-              <option value="Chevrolet">Chevrolet</option>
-              <option value="Ford">Ford</option>
-              <option value="Dodge">Dodge</option>
-            </select>
-          </div>
-          <div class="three columns">
-            <label for="year">Año</label>
-            <select class="u-full-width" id="year">
-              <option value="">Seleccione</option>
-            </select>
-          </div>
-          <div class="three columns">
-            <label for="minimo">Precio Min</label>
-            <select class="u-full-width" id="minimo">
-              <option value="">Seleccione</option>
-              <option value="20000">20,000</option>
-              <option value="30000">30,000</option>
-              <option value="40000">40,000</option>
-              <option value="50000">50,000</option>
-              <option value="60000">60,000</option>
-              <option value="70000">70,000</option>
-              <option value="80000">80,000</option>
-              <option value="90000">90,000</option>
-            </select>
-          </div>
-          <div class="three columns">
-            <label for="maximo">Precio Max</label>
-            <select class="u-full-width" id="maximo">
-              <option value="">Seleccione</option>
-              <option value="20000">20,000</option>
-              <option value="30000">30,000</option>
-              <option value="40000">40,000</option>
-              <option value="50000">50,000</option>
-              <option value="60000">60,000</option>
-              <option value="70000">70,000</option>
-              <option value="80000">80,000</option>
-              <option value="90000">90,000</option>
-            </select>
-          </div>
-          <div class="row">
-            <div class="four columns">
-              <label for="puertas">Puertas</label>
-              <select class="u-full-width" id="puertas">
-                <option value="">Seleccione</option>
-                <option value="2">2</option>
-                <option value="4">4</option>
-              </select>
-            </div>
-            <div class="four columns">
-              <label for="transmision">Transmisión</label>
-              <select class="u-full-width" id="transmision">
-                <option value="">Seleccione</option>
-                <option value="automatico">Automática</option>
-                <option value="manual">Manual</option>
-              </select>
-            </div>
-            <div class="four columns">
-              <label for="color">Color</label>
-              <select class="u-full-width" id="color">
-                <option value="">Seleccione</option>
-                <option value="Negro">Negro</option>
-                <option value="Azul">Azul</option>
-                <option value="Blanco">Blanco</option>
-                <option value="Rojo">Rojo</option>
-              </select>
-            </div>
-          </div>
+        <div class="filtro__campo">
+          <label for="marca" class="filtro__label">Marca</label>
+          <select class="filtro__select" id="marca">
+            <option value="">Seleccione</option>
+            <option value="Audi">Audi</option>
+            <option value="BMW">BMW</option>
+            <option value="Mercedes Benz">Mercedes Benz</option>
+            <option value="Chevrolet">Chevrolet</option>
+            <option value="Ford">Ford</option>
+            <option value="Dodge">Dodge</option>
+          </select>
+        </div>
+        <div class="filtro__campo">
+          <label for="year" class="filtro__label">Año</label>
+          <select class="filtro__select" id="year">
+            <option value="">Seleccione</option>
+          </select>
+        </div>
+        <div class="filtro__campo">
+          <label for="minimo" class="filtro__label">Precio Min</label>
+          <select class="filtro__select" id="minimo">
+            <option value="">Seleccione</option>
+            <option value="20000">20,000</option>
+            <option value="30000">30,000</option>
+            <option value="40000">40,000</option>
+            <option value="50000">50,000</option>
+            <option value="60000">60,000</option>
+            <option value="70000">70,000</option>
+            <option value="80000">80,000</option>
+            <option value="90000">90,000</option>
+          </select>
+        </div>
+        <div class="filtro__campo">
+          <label for="maximo" class="filtro__label">Precio Max</label>
+          <select class="filtro__select" id="maximo">
+            <option value="">Seleccione</option>
+            <option value="20000">20,000</option>
+            <option value="30000">30,000</option>
+            <option value="40000">40,000</option>
+            <option value="50000">50,000</option>
+            <option value="60000">60,000</option>
+            <option value="70000">70,000</option>
+            <option value="80000">80,000</option>
+            <option value="90000">90,000</option>
+          </select>
+        </div>
+        <div class="filtro__campo">
+          <label for="puertas" class="filtro__label">Puertas</label>
+          <select class="filtro__select" id="puertas">
+            <option value="">Seleccione</option>
+            <option value="2">2</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div class="filtro__campo">
+          <label for="transmision" class="filtro__label">Transmisión</label>
+          <select class="filtro__select" id="transmision">
+            <option value="">Seleccione</option>
+            <option value="automatico">Automática</option>
+            <option value="manual">Manual</option>
+          </select>
+        </div>
+        <div class="filtro__campo">
+          <label for="color" class="filtro__label">Color</label>
+          <select class="filtro__select" id="color">
+            <option value="">Seleccione</option>
+            <option value="Negro">Negro</option>
+            <option value="Azul">Azul</option>
+            <option value="Blanco">Blanco</option>
+            <option value="Rojo">Rojo</option>
+          </select>
         </div>
       </form>
 
       <div id="results" class="cars__grid">
         <div class="car">
-          <picture>
-            <img
-              class="car__img"
-              loading="lazy"
-              width="500"
-              height="300"
-              src="./assets/img/hb.jpg"
-              alt=""
-            />
-          </picture>
-          <span class="car__year">2022</span>
-          <div class="car__content">
-            <h2 class="car__model">Seat León FR</h2>
-            <p class="car__price">
-              $500,000
-              <i class="bx bxs-star car__price--reviews">(5 Reseñas)</i>
-            </p>
-            <p class="car__character">
-              <i class="bx bxs-door-open car__icon"></i>
-              4 Puertas
-            </p>
-            <p class="car__character">
-              <i class="bx bxs-car car__icon"></i>
-              Automática
-            </p>
-            <div class="car__btns">
-              <a href="#" class="car__btn">Comprar</a>
-              <a href="#" class="car__details">Ver detalles</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="car">
-          <picture>
-            <img
-              class="car__img"
-              loading="lazy"
-              width="500"
-              height="300"
-              src="./assets/img/hb.jpg"
-              alt=""
-            />
-          </picture>
-          <span class="car__year">2022</span>
-          <div class="car__content">
-            <h2 class="car__model">Seat León FR</h2>
-            <p class="car__price">
-              $500,000
-              <i class="bx bxs-star car__price--reviews">(5 Reseñas)</i>
-            </p>
-            <p class="car__character">
-              <i class="bx bxs-door-open car__icon"></i>
-              4 Puertas
-            </p>
-            <p class="car__character">
-              <i class="bx bxs-car car__icon"></i>
-              Automática
-            </p>
-            <div class="car__btns">
-              <a href="#" class="car__btn">Comprar</a>
-              <a href="#" class="car__details">Ver detalles</a>
-            </div>
-          </div>
-        </div><div class="car">
-          <picture>
-            <img
-              class="car__img"
-              loading="lazy"
-              width="500"
-              height="300"
-              src="./assets/img/hb.jpg"
-              alt=""
-            />
-          </picture>
-          <span class="car__year">2022</span>
-          <div class="car__content">
-            <h2 class="car__model">Seat León FR</h2>
-            <p class="car__price">
-              $500,000
-              <i class="bx bxs-star car__price--reviews">(5 Reseñas)</i>
-            </p>
-            <p class="car__character">
-              <i class="bx bxs-door-open car__icon"></i>
-              4 Puertas
-            </p>
-            <p class="car__character">
-              <i class="bx bxs-car car__icon"></i>
-              Automática
-            </p>
-            <div class="car__btns">
-              <a href="#" class="car__btn">Comprar</a>
-              <a href="#" class="car__details">Ver detalles</a>
-            </div>
-          </div>
-        </div><div class="car">
-          <picture>
-            <img
-              class="car__img"
-              loading="lazy"
-              width="500"
-              height="300"
-              src="./assets/img/hb.jpg"
-              alt=""
-            />
-          </picture>
-          <span class="car__year">2022</span>
-          <div class="car__content">
-            <h2 class="car__model">Seat León FR</h2>
-            <p class="car__price">
-              $500,000
-              <i class="bx bxs-star car__price--reviews">(5 Reseñas)</i>
-            </p>
-            <p class="car__character">
-              <i class="bx bxs-door-open car__icon"></i>
-              4 Puertas
-            </p>
-            <p class="car__character">
-              <i class="bx bxs-car car__icon"></i>
-              Automática
-            </p>
-            <div class="car__btns">
-              <a href="#" class="car__btn">Comprar</a>
-              <a href="#" class="car__details">Ver detalles</a>
-            </div>
-          </div>
-        </div><div class="car">
-          <picture>
-            <img
-              class="car__img"
-              loading="lazy"
-              width="500"
-              height="300"
-              src="./assets/img/hb.jpg"
-              alt=""
-            />
-          </picture>
-          <span class="car__year">2022</span>
-          <div class="car__content">
-            <h2 class="car__model">Seat León FR</h2>
-            <p class="car__price">
-              $500,000
-              <i class="bx bxs-star car__price--reviews">(5 Reseñas)</i>
-            </p>
-            <p class="car__character">
-              <i class="bx bxs-door-open car__icon"></i>
-              4 Puertas
-            </p>
-            <p class="car__character">
-              <i class="bx bxs-car car__icon"></i>
-              Automática
-            </p>
-            <div class="car__btns">
-              <a href="#" class="car__btn">Comprar</a>
-              <a href="#" class="car__details">Ver detalles</a>
-            </div>
-          </div>
-        </div><div class="car">
           <picture>
             <img
               class="car__img"
