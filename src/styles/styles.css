@@ -159,10 +159,10 @@ section {
 .header {
   display: block;
   width: 100%;
-  background-color: var(--white);
   position: fixed;
   top: 0;
   left: 0;
+  transition: .2s background ease-in-out;
   z-index: 1;
 }
 

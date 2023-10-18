@@ -1,71 +1,88 @@
 // Variables
+const searchIcon = document.querySelector(`#search-icon`);
+const hamburguerBtn = document.querySelector(`.hamburguer`);
 
 // Eventos
-document.addEventListener(`DOMContentLoaded`, () => {
-  openCloseSearchbar();
-  openCloseNav();
-  closeOutsideClick();
-});
+document.addEventListener(`DOMContentLoaded`, startApp);
+
+function startApp() {
+  eventListeners();
+}
+
+function eventListeners() {
+  // Eventos del searchBar y Nav.
+  
+  searchIcon.addEventListener(`click`, openSearchbar);
+  hamburguerBtn.addEventListener(`click`, openNav);
+
+  // Cerrar el searchbar y el nav al hacer click en cualquier parte del documento.
+  window.addEventListener(`click`, closeOutsideClick);
+  // Cambiar el color del header al hacer scroll.
+  window.addEventListener(`scroll`, colorHeaderScroll);
+}
 
 // Funciones
-function openCloseSearchbar() {
-  const searchIcon = document.querySelector(`#search-icon`);
+function openSearchbar() {
   const searchBox = document.querySelector(`#search-box`);
 
-  searchIcon.onclick = () => {
-    searchBox.classList.toggle(`search-box--active`);
-    searchBox.classList.toggle(`search-box__contenedor`);
-  };
+  searchBox.classList.toggle(`search-box--active`);
+  searchBox.classList.toggle(`search-box__contenedor`);
 }
 
-function openCloseNav() {
-  const hamburguerBtn = document.querySelector(`.hamburguer`);
+function openNav() {
   const nav = document.querySelector(`.nav`);
 
-  hamburguerBtn.onclick = () => {
-    nav.classList.toggle(`nav--active`);
-  };
-
+  nav.classList.toggle(`nav--active`);
 }
 
-function closeOutsideClick() {
-  const searchIcon = document.querySelector(`#search-icon`);
+function closeOutsideClick(e) {
+  const reference = e.target;
   const searchBox = document.querySelector(`#search-box`);
-  const hamburguerBtn = document.querySelector(`.hamburguer`);
   const nav = document.querySelector(`.nav`);
 
-  // Agregar evento onclick al documento para cerrar searchBar y nav cuando se hace clic en cualquier parte
-  window.onclick = (e) => {
-    const reference = e.target;
+  /* 
+     1- Verifica si el searchbar está abierto.
+     2- Revisa si el click no ocurrió en el icono. 
+     3- Ve si el click no ocurrió dentro del searchbar.
+  */
+  if (
+    searchBox.classList.contains(`search-box--active`) &&
+    reference !== searchIcon &&
+    !searchBox.contains(reference)
+  ) {
+    // Cierra el searchBar al eliminar la clase que lo hace visible
+    searchBox.classList.remove(`search-box--active`);
+    searchBox.classList.remove(`search-box__contenedor`);
+  }
 
-    // Verifica si el searchBar está abierto, si el click no ocurrió en el icono de búsqueda y sino ocurrió dentro del searchbar
-    if (
-      searchBox.classList.contains(`search-box--active`) &&
-      reference !== searchIcon &&
-      !searchBox.contains(reference)
-    ) {
-      searchBox.classList.remove(`search-box--active`); // Cierra el searchBar al eliminar la clase que lo hace visible
-      searchBox.classList.remove(`search-box__contenedor`);
-    }
-
-    // Verifica si la clase `nav--active` existe, despues revisa si el click no ocurrió en el boton hamburguesa para despúes ver si no ocurrió dentro del nav.
-    if (
-      nav.classList.contains(`nav--active`) &&
-      reference !== hamburguerBtn &&
-      !nav.contains(reference)
-    ) {
-      nav.classList.remove(`nav--active`);
-    }
-
-  };
+  /* 
+    1- Verifica si la clase `nav--active` existe.
+    2- Revisa si el click no ocurrió en el boton hamburguesa.
+  */
+  if (nav.classList.contains(`nav--active`) && reference !== hamburguerBtn) {
+    nav.classList.remove(`nav--active`);
+  }
 
   closeOnScroll(nav, searchBox);
 }
 
 function closeOnScroll(nav, searchBox) {
-  window.onscroll = () => {
+  window.addEventListener(`scroll`, () => {
     nav.classList.remove(`nav--active`);
     searchBox.classList.remove(`search-box--active`);
     searchBox.classList.remove(`search-box__contenedor`);
-  };
+  });
+}
+
+function colorHeaderScroll() {
+  const header = document.querySelector(`.header`);
+  const scrollPosition = window.scrollY;
+
+  if (scrollPosition > 90) {
+    header.style.backgroundColor = "White";
+
+    return;
+  }
+
+  header.style.backgroundColor = `transparent`;
 }
