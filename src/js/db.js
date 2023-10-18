@@ -7,7 +7,6 @@ const autos = [
     puertas: 4,
     color: "Rojo",
     transmision: `Automática`,
-    imagen: ``,
   },
   {
     
