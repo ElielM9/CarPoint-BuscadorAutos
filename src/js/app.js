@@ -1,17 +1,21 @@
-// Variables
+// Variables navegacion
 const searchIcon = document.querySelector(`#search-icon`);
 const hamburguerBtn = document.querySelector(`.hamburguer`);
+
+// Variables filtro de busqueda
+const results = document.querySelector(`#results`);
 
 // Eventos
 document.addEventListener(`DOMContentLoaded`, startApp);
 
 function startApp() {
   eventListeners();
+  showCars(cars);
 }
 
 function eventListeners() {
   // Eventos del searchBar y Nav.
-  
+
   searchIcon.addEventListener(`click`, openSearchbar);
   hamburguerBtn.addEventListener(`click`, openNav);
 
@@ -85,4 +89,49 @@ function colorHeaderScroll() {
   }
 
   header.style.backgroundColor = `transparent`;
+}
+
+function showCars(cars) {
+  cars.forEach((car) => {
+    const { img, year, marca, model, precio, puertas, transmision } = car;
+    const carCard = `
+        <picture>
+          <source srcset="${img}.avif" type="image/avif" />
+          <source srcset="${img}.webp" type="image/webp" />
+          <img
+            class="car__img"
+            loading="lazy"
+            width="500"
+            height="300"
+            src="${img}.jpg"
+            alt=""
+          />
+        </picture>
+        <span class="car__year">${year}</span>
+        <div class="car__content">
+          <h2 class="car__model">${marca} ${model}</h2>
+          <p class="car__price">
+            $${precio.toLocaleString()}
+            <i class="bx bxs-star car__price--reviews">(5 Reseñas)</i>
+          </p>
+          <p class="car__character">
+            <i class="bx bxs-door-open car__icon"></i>
+            ${puertas} Puertas
+          </p>
+          <p class="car__character">
+            <i class="bx bxs-car car__icon"></i>
+            ${transmision}
+          </p>
+          <div class="car__btns">
+            <a href="#" class="car__btn">Comprar</a>
+            <a href="#" class="car__details">Ver detalles</a>
+          </div>
+        </div>
+`;
+    const carHTML = document.createElement(`div`);
+    carHTML.classList.add(`car`);
+    carHTML.innerHTML = carCard;
+
+    results.appendChild(carHTML);
+  });
 }

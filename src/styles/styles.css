@@ -492,6 +492,8 @@ section {
 }
 
 .car__img {
+  height: 16.5rem ;
+  width: 100%;
   object-fit: cover;
   object-position: center;
 }
