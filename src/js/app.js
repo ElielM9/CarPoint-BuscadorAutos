@@ -30,7 +30,6 @@ document.addEventListener(`DOMContentLoaded`, startApp);
 function startApp() {
   eventListeners();
   showCars(cars);
-  fillYearSelect();
 }
 
 function eventListeners() {
@@ -200,24 +199,33 @@ function showCars(cars) {
     results.appendChild(carHTML);
   });
 
-  fillBrandsSelect(cars);
+  fillSelects(cars);
 }
 
-function fillBrandsSelect(cars) {
+function fillSelects(cars) {
+  let carBrands = [];
+  let carDoors = [];
+  let carColors = [];
   cars.forEach((car) => {
-    const { brand } = car;
-    const brandOptions = Array.from(brandSelect.options)
-      .map((brandOption) => brandOption.value)
-      .includes(brand);
+    const { brand, doors, color } = car;
 
-    if (!brandOptions) {
-      const option = document.createElement(`option`);
-      option.value = brand;
-      option.textContent = brand;
+    if (!carBrands.includes(brand)) {
+      carBrands.push(brand);
+    }
 
-      brandSelect.appendChild(option);
+    if (!carDoors.includes(doors)) {
+      carDoors.push(doors);
+    }
+
+    if (!carColors.includes(color)) {
+      carColors.push(color);
     }
   });
+
+  fillYearSelect();
+  fillBrandsSelect(carBrands);
+  fillDoorsSelect(carDoors);
+  fillColorsSelect(carColors);
 }
 
 function fillYearSelect() {
@@ -225,10 +233,36 @@ function fillYearSelect() {
   const yearMin = yearMax - 10;
 
   for (let i = yearMax; i >= yearMin; i--) {
-    const option = document.createElement(`option`);
-    option.value = i;
-    option.textContent = i;
-
+    const option = createOption(i);
     yearSelect.appendChild(option);
   }
+}
+
+function fillBrandsSelect(carBrands) {
+  carBrands.forEach((brand) => {
+    const option = createOption(brand);
+    brandSelect.appendChild(option);
+  });
+}
+
+function fillDoorsSelect(carDoors) {
+  carDoors.forEach((doors) => {
+    const option = createOption(doors);
+    doorsSelect.appendChild(option);
+  });
+}
+
+function fillColorsSelect(carColors) {
+  carColors.forEach((color) => {
+    const option = createOption(color);
+    colorSelect.appendChild(option);
+  });
+}
+
+function createOption(value) {
+  const option = document.createElement(`option`);
+  option.value = value;
+  option.textContent = value;
+
+  return option;
 }
