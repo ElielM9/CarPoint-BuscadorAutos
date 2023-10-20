@@ -30,6 +30,7 @@ document.addEventListener(`DOMContentLoaded`, startApp);
 function startApp() {
   eventListeners();
   showCars(cars);
+  fillYearSelect();
 }
 
 function eventListeners() {
@@ -86,7 +87,7 @@ function eventListeners() {
     searchData.color = selectedValue;
   });
 
-  console.log(searchData);
+  // console.log(searchData);
 }
 
 // Funciones
@@ -199,31 +200,24 @@ function showCars(cars) {
     results.appendChild(carHTML);
   });
 
-  fillSelects(cars);
+  fillBrandsSelect(cars);
 }
 
-function fillSelects(cars) {
+function fillBrandsSelect(cars) {
   cars.forEach((car) => {
-    const { brand, doors, transmission, color } = car;
-    fillBrandsSelect(brand);
+    const { brand } = car;
+    const brandOptions = Array.from(brandSelect.options)
+      .map((brandOption) => brandOption.value)
+      .includes(brand);
+
+    if (!brandOptions) {
+      const option = document.createElement(`option`);
+      option.value = brand;
+      option.textContent = brand;
+
+      brandSelect.appendChild(option);
+    }
   });
-
-  fillYearSelect();
-}
-
-function fillBrandsSelect(brand) {
-  const brandOptions = Array.from(brandSelect.options)
-    .map((brandOption) => brandOption.value)
-    .includes(brand);
-
-
-  if (!brandOptions) {
-    const option = document.createElement(`option`);
-    option.value = brand;
-    option.textContent = brand;
-
-    brandSelect.appendChild(option);
-  }
 }
 
 function fillYearSelect() {
