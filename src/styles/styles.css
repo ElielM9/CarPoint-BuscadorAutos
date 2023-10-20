@@ -90,9 +90,9 @@ ul {
 
 img {
   display: block;
-  max-width: 100%;
-  width: auto;
   height: auto;
+  width: auto;
+  max-width: 100%;
 }
 
 section {
@@ -162,7 +162,7 @@ section {
   position: fixed;
   top: 0;
   left: 0;
-  transition: .2s background ease-in-out;
+  transition: 0.2s background ease-in-out;
   z-index: 1;
 }
 
@@ -271,6 +271,7 @@ section {
 .search-icon {
   font-size: 2.4rem;
   cursor: pointer;
+  transition: 0.2s color ease-in-out;
 }
 
 @media (min-width: 992px) {
@@ -365,7 +366,7 @@ section {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: 0.5s;
+  transition: 0.4s ease-in-out;
   overflow: hidden;
 }
 
@@ -383,7 +384,7 @@ section {
   font-size: 1.5rem;
   background-color: var(--white);
   padding: 0.8rem;
-  transition: 0.5s;
+  transition: 0.4s ease-in-out;
   border-radius: 0.5rem;
 }
 
@@ -430,24 +431,23 @@ section {
   margin: 1rem 0;
 }
 
-.filtro__campo{
+.filtro__campo {
   display: flex;
   flex-flow: column;
 }
 
-
-.filtro__label{
+.filtro__label {
   font-weight: 500;
- color: var(--rojo);
-  margin: 0 0 0 .5rem;
+  color: var(--rojo);
+  margin: 0 0 0 0.5rem;
 }
 
-.filtro__select{
+.filtro__select {
   color: var(--white);
   background-color: var(--rojo);
   padding: 1rem;
   border: 2px solid var(--rojo);
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   outline: none;
 }
 
@@ -487,12 +487,12 @@ section {
   margin: 0;
   background-color: var(--gray);
   border-radius: 1rem;
-  transition: 0.2s ease;
+  /* transition: 0.2s ease; */
   overflow: hidden;
 }
 
 .car__img {
-  height: 16.5rem ;
+  height: 16.5rem;
   width: 100%;
   object-fit: cover;
   object-position: center;
@@ -508,8 +508,15 @@ section {
   width: 6rem;
   padding: 0.2rem;
   background-color: var(--white);
-  transition: 0.5s;
+  transition: 0.4s ease-in-out;
   border-radius: 0.5rem;
+}
+
+@media (hover: hover) {
+  .car:hover .car__year {
+    color: var(--white);
+    background-color: var(--rojo);
+  }
 }
 
 .car__content {

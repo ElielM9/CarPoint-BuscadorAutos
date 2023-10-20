@@ -3,7 +3,26 @@ const searchIcon = document.querySelector(`#search-icon`);
 const hamburguerBtn = document.querySelector(`.hamburguer`);
 
 // Variables filtro de busqueda
+const brandSelect = document.querySelector(`#brand`);
+const yearSelect = document.querySelector(`#year`);
+const minPrice = document.querySelector(`#min`);
+const maxPrice = document.querySelector(`#max`);
+const doorsSelect = document.querySelector(`#doors`);
+const transmissionSelect = document.querySelector(`#transmission`);
+const colorSelect = document.querySelector(`#color`);
+
+// Contenedor de resultados
 const results = document.querySelector(`#results`);
+
+const searchData = {
+  year: ``,
+  brand: ``,
+  minPrice: ``,
+  maxPrice: ``,
+  doors: ``,
+  transmission: ``,
+  color: ``,
+};
 
 // Eventos
 document.addEventListener(`DOMContentLoaded`, startApp);
@@ -23,6 +42,51 @@ function eventListeners() {
   window.addEventListener(`click`, closeOutsideClick);
   // Cambiar el color del header al hacer scroll.
   window.addEventListener(`scroll`, colorHeaderScroll);
+
+  // Eventos para el filtro de búsqueda.
+  brandSelect.addEventListener(`change`, (e) => {
+    const selectedValue = e.target.value;
+
+    searchData.brand = selectedValue;
+  });
+
+  yearSelect.addEventListener(`change`, (e) => {
+    const selectedValue = e.target.value;
+
+    searchData.year = selectedValue;
+  });
+
+  minPrice.addEventListener(`change`, (e) => {
+    const selectedValue = e.target.value;
+
+    searchData.minPrice = selectedValue;
+  });
+
+  maxPrice.addEventListener(`change`, (e) => {
+    const selectedValue = e.target.value;
+
+    searchData.maxPrice = selectedValue;
+  });
+
+  doorsSelect.addEventListener(`change`, (e) => {
+    const selectedValue = e.target.value;
+
+    searchData.doors = selectedValue;
+  });
+
+  transmissionSelect.addEventListener(`change`, (e) => {
+    const selectedValue = e.target.value;
+
+    searchData.transmission = selectedValue;
+  });
+
+  colorSelect.addEventListener(`change`, (e) => {
+    const selectedValue = e.target.value;
+
+    searchData.color = selectedValue;
+  });
+
+  console.log(searchData);
 }
 
 // Funciones
@@ -55,8 +119,7 @@ function closeOutsideClick(e) {
     !searchBox.contains(reference)
   ) {
     // Cierra el searchBar al eliminar la clase que lo hace visible
-    searchBox.classList.remove(`search-box--active`);
-    searchBox.classList.remove(`search-box__contenedor`);
+    searchBox.classList.remove(`search-box--active`, `search-box__contenedor`);
   }
 
   /* 
@@ -73,8 +136,7 @@ function closeOutsideClick(e) {
 function closeOnScroll(nav, searchBox) {
   window.addEventListener(`scroll`, () => {
     nav.classList.remove(`nav--active`);
-    searchBox.classList.remove(`search-box--active`);
-    searchBox.classList.remove(`search-box__contenedor`);
+    searchBox.classList.remove(`search-box--active`, `search-box__contenedor`);
   });
 }
 
@@ -84,16 +146,17 @@ function colorHeaderScroll() {
 
   if (scrollPosition > 90) {
     header.style.backgroundColor = "White";
-
+    searchIcon.style.color = `Black`;
     return;
   }
 
   header.style.backgroundColor = `transparent`;
+  searchIcon.style.color = `White`;
 }
 
 function showCars(cars) {
   cars.forEach((car) => {
-    const { img, year, marca, model, precio, puertas, transmision } = car;
+    const { img, year, brand, model, price, doors, transmission } = car;
     const carCard = `
         <picture>
           <source srcset="${img}.avif" type="image/avif" />
@@ -109,18 +172,18 @@ function showCars(cars) {
         </picture>
         <span class="car__year">${year}</span>
         <div class="car__content">
-          <h2 class="car__model">${marca} ${model}</h2>
+          <h2 class="car__model">${brand} ${model}</h2>
           <p class="car__price">
-            $${precio.toLocaleString()}
+            $${price.toLocaleString()}
             <i class="bx bxs-star car__price--reviews">(5 Reseñas)</i>
           </p>
           <p class="car__character">
             <i class="bx bxs-door-open car__icon"></i>
-            ${puertas} Puertas
+            ${doors} Puertas
           </p>
           <p class="car__character">
             <i class="bx bxs-car car__icon"></i>
-            ${transmision}
+            ${transmission}
           </p>
           <div class="car__btns">
             <a href="#" class="car__btn">Comprar</a>
@@ -128,10 +191,44 @@ function showCars(cars) {
           </div>
         </div>
 `;
+
     const carHTML = document.createElement(`div`);
     carHTML.classList.add(`car`);
     carHTML.innerHTML = carCard;
 
     results.appendChild(carHTML);
   });
+
+  fillSelects(cars);
+}
+
+function fillSelects(cars) {
+  cars.forEach((car) => {
+    const { brand, doors, transmission, color } = car;
+
+    fillBrandsSelect(brand);
+  });
+
+  fillYearSelect();
+}
+
+function fillBrandsSelect(brand) {
+  const option = document.createElement(`option`);
+  option.value = brand;
+  option.textContent = brand;
+
+  brandSelect.appendChild(option);
+}
+
+function fillYearSelect() {
+  const yearMax = new Date().getFullYear();
+  const yearMin = yearMax - 10;
+
+  for (let i = yearMax; i >= yearMin; i--) {
+    const option = document.createElement(`option`);
+    option.value = i;
+    option.textContent = i;
+
+    yearSelect.appendChild(option);
+  }
 }
