@@ -147,6 +147,7 @@ function colorHeaderScroll() {
   if (scrollPosition > 90) {
     header.style.backgroundColor = "White";
     searchIcon.style.color = `Black`;
+
     return;
   }
 
@@ -206,6 +207,7 @@ function fillSelects(cars) {
   let carBrands = [];
   let carDoors = [];
   let carColors = [];
+
   cars.forEach((car) => {
     const { brand, doors, color } = car;
 
@@ -223,9 +225,9 @@ function fillSelects(cars) {
   });
 
   fillYearSelect();
-  fillBrandsSelect(carBrands);
-  fillDoorsSelect(carDoors);
-  fillColorsSelect(carColors);
+  fillSelect(carBrands, brandSelect);
+  fillSelect(carDoors, doorsSelect);
+  fillSelect(carColors, colorSelect);
 }
 
 function fillYearSelect() {
@@ -238,24 +240,10 @@ function fillYearSelect() {
   }
 }
 
-function fillBrandsSelect(carBrands) {
-  carBrands.forEach((brand) => {
-    const option = createOption(brand);
-    brandSelect.appendChild(option);
-  });
-}
-
-function fillDoorsSelect(carDoors) {
-  carDoors.forEach((doors) => {
-    const option = createOption(doors);
-    doorsSelect.appendChild(option);
-  });
-}
-
-function fillColorsSelect(carColors) {
-  carColors.forEach((color) => {
-    const option = createOption(color);
-    colorSelect.appendChild(option);
+function fillSelect(carsData, selectElement) {
+  carsData.forEach((carData) => {
+    const option = createOption(carData);
+    selectElement.appendChild(option);
   });
 }
 
