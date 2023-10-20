@@ -49,4 +49,14 @@ const cars = [
     transmission: `Automática`,
     img: `./assets/img/brzSPORT`,
   },
+  {
+    brand: "Subaru",
+    model: "WRX",
+    year: 2023,
+    price: 789900,
+    doors: 4,
+    color: "Rojo",
+    transmission: `Manual`,
+    img: `./assets/img/wrxSPORT`,
+  },
 ];

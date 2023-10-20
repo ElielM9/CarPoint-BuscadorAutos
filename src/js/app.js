@@ -205,7 +205,6 @@ function showCars(cars) {
 function fillSelects(cars) {
   cars.forEach((car) => {
     const { brand, doors, transmission, color } = car;
-
     fillBrandsSelect(brand);
   });
 
@@ -213,11 +212,18 @@ function fillSelects(cars) {
 }
 
 function fillBrandsSelect(brand) {
-  const option = document.createElement(`option`);
-  option.value = brand;
-  option.textContent = brand;
+  const brandOptions = Array.from(brandSelect.options)
+    .map((brandOption) => brandOption.value)
+    .includes(brand);
 
-  brandSelect.appendChild(option);
+
+  if (!brandOptions) {
+    const option = document.createElement(`option`);
+    option.value = brand;
+    option.textContent = brand;
+
+    brandSelect.appendChild(option);
+  }
 }
 
 function fillYearSelect() {
