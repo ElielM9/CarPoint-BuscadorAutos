@@ -200,7 +200,7 @@ function showCars(cars) {
     results.appendChild(carHTML);
   });
 
-  fillSelects(cars);
+  fillCarsSelects(cars);
 }
 
 function fillCarsSelects(cars) {
