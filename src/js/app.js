@@ -203,7 +203,7 @@ function showCars(cars) {
   fillSelects(cars);
 }
 
-function fillSelects(cars) {
+function fillCarsSelects(cars) {
   let carBrands = [];
   let carDoors = [];
   let carColors = [];
