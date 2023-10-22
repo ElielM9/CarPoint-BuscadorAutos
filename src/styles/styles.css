@@ -3,9 +3,9 @@
   --poppins: "Poppins", sans-serif;
 
   /* Colores */
+  --bgColor: #ecf7fff3;
+  --mainColor: #020a9b;
   --hoverColor: #020771;
-  --bgColor: #ecf7fff3; 
-  --mainColor: #020a9b; 
   --black: #020102;
   --white: #fff;
   --gray: #f6f6f6;
@@ -172,7 +172,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 0;
+  padding: 1rem 0;
 }
 
 @media (min-width: 768px) {
@@ -277,11 +277,11 @@ section {
   transition: 0.2s color ease-in-out;
 }
 
-/* @media (min-width: 992px) {
+@media (min-width: 992px) {
   .search-icon {
     color: var(--white);
   }
-} */
+}
 
 .search-box {
   position: absolute;
@@ -313,15 +313,21 @@ section {
   display: flex;
   align-items: center;
   min-height: 55rem;
-background-color: var(--bgColor);
-  background-repeat: no-repeat;
+  background-color: var(--bgColor);
+
   background-size: cover;
   background-position: center left;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .hero {
     min-height: 65rem;
+    background-image: linear-gradient(
+    -225deg,
+      rgba(236, 247, 255, 0.953) 55%,
+      rgb(2, 10, 155) 40%
+    );
+    background-repeat: no-repeat;
   }
 }
 

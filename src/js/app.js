@@ -142,17 +142,18 @@ function closeOnScroll(nav, searchBox) {
 
 function colorHeaderScroll() {
   const header = document.querySelector(`.header`);
-  const scrollPosition = window.scrollY;
+  const scrollPosY = window.scrollY;
+  const screenWidth = window.innerWidth;
 
-  if (scrollPosition > 90) {
-    header.style.backgroundColor = "White";
+  if (scrollPosY > 90) {
+    header.style.backgroundColor = `White`;
     searchIcon.style.color = `Black`;
 
     return;
   }
 
-  header.style.backgroundColor = `transparent`;
-  searchIcon.style.color `inherit`
+  header.style.backgroundColor = `Transparent`;
+  searchIcon.style.color = `White`
 }
 
 function showCars(cars) {
