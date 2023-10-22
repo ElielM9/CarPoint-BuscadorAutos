@@ -3,7 +3,9 @@
   --poppins: "Poppins", sans-serif;
 
   /* Colores */
-  --rojo: #d90429;
+  --hoverColor: #020771;
+  --bgColor: #ecf7fff3; 
+  --mainColor: #020a9b; 
   --black: #020102;
   --white: #fff;
   --gray: #f6f6f6;
@@ -122,7 +124,7 @@ section {
 [class$="__titulo--red"] {
   font-size: 1.8rem;
   font-weight: 400;
-  color: var(--rojo);
+  color: var(--mainColor);
 }
 
 [class$="__parrafo"] {
@@ -142,17 +144,17 @@ section {
   text-align: left;
   font-weight: 400;
   color: var(--white);
-  background-color: var(--rojo);
+  background-color: var(--mainColor);
   border-radius: 0.5rem;
   transition: 0.4s all ease-in-out;
 }
 
 [class$="__btn"]:active {
-  background-color: #a80e27;
+  background-color: var(--hoverColor);
 }
 @media (hover: hover) {
   [class$="__btn"]:hover {
-    background-color: #a80e27;
+    background-color: var(--hoverColor);
   }
 }
 
@@ -203,7 +205,7 @@ section {
 .logo__titulo--red {
   font-size: inherit;
   font-weight: inherit;
-  color: var(--rojo);
+  color: var(--mainColor);
 }
 
 .nav {
@@ -255,30 +257,31 @@ section {
 
 .nav__link:active,
 .nav__link.active {
-  background-color: var(--rojo);
+  background-color: var(--mainColor);
   color: var(--white);
 }
 
 @media (hover: hover) {
   .nav__link:hover,
   .nav__link.active {
-    color: var(--rojo);
-    border-color: var(--rojo);
+    color: var(--mainColor);
+    border-color: var(--mainColor);
     background-color: inherit;
   }
 }
 
 .search-icon {
+  color: var(--black);
   font-size: 2.4rem;
   cursor: pointer;
   transition: 0.2s color ease-in-out;
 }
 
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
   .search-icon {
     color: var(--white);
   }
-}
+} */
 
 .search-box {
   position: absolute;
@@ -287,7 +290,7 @@ section {
   left: 0;
   background: var(--white);
   box-shadow: 4px 4px 20px rgb(15 54 55 / 10%);
-  border: 1px solid var(--rojo);
+  border: 1px solid var(--mainColor);
   border-radius: 0.5rem;
   clip-path: circle(0% at 100% 0%);
 }
@@ -310,7 +313,7 @@ section {
   display: flex;
   align-items: center;
   min-height: 55rem;
-  background-image: url(../assets/img/Background-home.png);
+background-color: var(--bgColor);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center left;
@@ -336,7 +339,7 @@ section {
 .hero__titulo--red {
   font-size: inherit;
   font-weight: inherit;
-  color: var(--rojo);
+  color: var(--mainColor);
 }
 
 /* Categorias */
@@ -391,7 +394,7 @@ section {
 @media (hover: hover) {
   .categoria:hover .categoria__titulo {
     color: var(--white);
-    background-color: var(--rojo);
+    background-color: var(--mainColor);
   }
 }
 
@@ -438,15 +441,15 @@ section {
 
 .filtro__label {
   font-weight: 500;
-  color: var(--rojo);
+  color: var(--mainColor);
   margin: 0 0 0 0.5rem;
 }
 
 .filtro__select {
   color: var(--white);
-  background-color: var(--rojo);
+  background-color: var(--mainColor);
   padding: 1rem;
-  border: 2px solid var(--rojo);
+  border: 2px solid var(--mainColor);
   border-radius: 0.5rem;
   outline: none;
 }
@@ -515,7 +518,7 @@ section {
 @media (hover: hover) {
   .car:hover .car__year {
     color: var(--white);
-    background-color: var(--rojo);
+    background-color: var(--mainColor);
   }
 }
 
@@ -533,12 +536,12 @@ section {
   align-items: center;
   justify-content: space-between;
   font-weight: 600;
-  color: var(--rojo);
+  color: var(--mainColor);
   margin: 0;
 }
 .car__price--reviews {
   font-size: 1.7rem;
-  color: var(--rojo);
+  color: var(--mainColor);
 }
 
 .car__character {
@@ -548,7 +551,7 @@ section {
 
 .car__icon {
   font-size: 1.8rem;
-  color: var(--rojo);
+  color: var(--mainColor);
 }
 
 .car__btns {
@@ -564,13 +567,13 @@ section {
 }
 
 .car__details:active {
-  border-bottom: 1px solid var(--rojo);
-  color: var(--rojo);
+  border-bottom: 1px solid var(--mainColor);
+  color: var(--mainColor);
 }
 
 @media (hover: hover) {
   .car__details:hover {
-    border-bottom: 1px solid var(--rojo);
+    border-bottom: 1px solid var(--mainColor);
     color: var(--rojo);
   }
 }

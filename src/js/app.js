@@ -152,12 +152,13 @@ function colorHeaderScroll() {
   }
 
   header.style.backgroundColor = `transparent`;
-  searchIcon.style.color = `White`;
+  searchIcon.style.color `inherit`
 }
 
 function showCars(cars) {
   cars.forEach((car) => {
     const { img, year, brand, model, price, doors, transmission } = car;
+    let randomNumber = Math.floor(Math.random() * 101);
     const carCard = `
         <picture>
           <source srcset="${img}.avif" type="image/avif" />
@@ -176,7 +177,7 @@ function showCars(cars) {
           <h2 class="car__model">${brand} ${model}</h2>
           <p class="car__price">
             $${price.toLocaleString()}
-            <i class="bx bxs-star car__price--reviews">(5 Reseñas)</i>
+            <i class="bx bxs-star car__price--reviews">(${randomNumber} Reseñas)</i>
           </p>
           <p class="car__character">
             <i class="bx bxs-door-open car__icon"></i>
@@ -204,16 +205,15 @@ function showCars(cars) {
 }
 
 function fillCarsSelects(cars) {
-  let carBrands = [];
+  let carBrands = cars
+    .map(({ brand }) => brand)
+    .filter((brand, index, carBrands) => carBrands.indexOf(brand) === index);
+
   let carDoors = [];
   let carColors = [];
 
   cars.forEach((car) => {
-    const { brand, doors, color } = car;
-
-    if (!carBrands.includes(brand)) {
-      carBrands.push(brand);
-    }
+    const { doors, color } = car;
 
     if (!carDoors.includes(doors)) {
       carDoors.push(doors);
