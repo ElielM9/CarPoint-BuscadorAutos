@@ -30,6 +30,7 @@ document.addEventListener(`DOMContentLoaded`, startApp);
 function startApp() {
   eventListeners();
   showCars(cars);
+  fillCarsSelects(cars);
 }
 
 function eventListeners() {
@@ -48,42 +49,56 @@ function eventListeners() {
     const selectedValue = e.target.value;
 
     searchData.brand = selectedValue;
+
+    filterCar();
   });
 
   yearSelect.addEventListener(`change`, (e) => {
-    const selectedValue = e.target.value;
+    const selectedValue = parseInt(e.target.value);
 
     searchData.year = selectedValue;
+
+    filterCar();
   });
 
   minPrice.addEventListener(`change`, (e) => {
     const selectedValue = e.target.value;
 
     searchData.minPrice = selectedValue;
+
+    filterCar();
   });
 
   maxPrice.addEventListener(`change`, (e) => {
     const selectedValue = e.target.value;
 
     searchData.maxPrice = selectedValue;
+
+    filterCar();
   });
 
   doorsSelect.addEventListener(`change`, (e) => {
     const selectedValue = e.target.value;
 
     searchData.doors = selectedValue;
+
+    filterCar();
   });
 
   transmissionSelect.addEventListener(`change`, (e) => {
     const selectedValue = e.target.value;
 
     searchData.transmission = selectedValue;
+
+    filterCar();
   });
 
   colorSelect.addEventListener(`change`, (e) => {
     const selectedValue = e.target.value;
 
     searchData.color = selectedValue;
+
+    filterCar();
   });
 
   // console.log(searchData);
@@ -143,23 +158,17 @@ function closeOnScroll(nav, searchBox) {
 function colorHeaderScroll() {
   const header = document.querySelector(`.header`);
   const scrollPosY = window.scrollY;
-  const screenWidth = window.innerWidth;
 
-  if (scrollPosY > 90) {
-    header.style.backgroundColor = `White`;
-    searchIcon.style.color = `Black`;
-
-    return;
-  }
-
-  header.style.backgroundColor = `Transparent`;
-  searchIcon.style.color = `White`
+  header.classList.toggle(`header__bg`, scrollPosY > 100);
 }
 
 function showCars(cars) {
+  // Limpia el HTML previo
+  cleanHTML();
+
   cars.forEach((car) => {
     const { img, year, brand, model, price, doors, transmission } = car;
-    let randomNumber = Math.floor(Math.random() * 101);
+    let randomNumber = Math.floor(Math.random() * 100);
     const carCard = `
         <picture>
           <source srcset="${img}.avif" type="image/avif" />
@@ -201,8 +210,12 @@ function showCars(cars) {
 
     results.appendChild(carHTML);
   });
+}
 
-  fillCarsSelects(cars);
+function cleanHTML() {
+  while (results.firstChild) {
+    results.removeChild(results.firstChild);
+  }
 }
 
 function fillCarsSelects(cars) {
@@ -210,25 +223,21 @@ function fillCarsSelects(cars) {
     .map(({ brand }) => brand)
     .filter((brand, index, carBrands) => carBrands.indexOf(brand) === index);
 
-  let carDoors = [];
-  let carColors = [];
+  fillSelect(carBrands, brandSelect);
 
-  cars.forEach((car) => {
-    const { doors, color } = car;
+  let carDoors = cars
+    .map(({ doors }) => doors)
+    .filter((doors, index, carDoors) => carDoors.indexOf(doors) === index);
 
-    if (!carDoors.includes(doors)) {
-      carDoors.push(doors);
-    }
+  fillSelect(carDoors, doorsSelect);
 
-    if (!carColors.includes(color)) {
-      carColors.push(color);
-    }
-  });
+  let carColors = cars
+    .map(({ color }) => color)
+    .filter((color, index, carColors) => carColors.indexOf(color) === index);
+
+  fillSelect(carColors, colorSelect);
 
   fillYearSelect();
-  fillSelect(carBrands, brandSelect);
-  fillSelect(carDoors, doorsSelect);
-  fillSelect(carColors, colorSelect);
 }
 
 function fillYearSelect() {
@@ -254,4 +263,95 @@ function createOption(value) {
   option.textContent = value;
 
   return option;
+}
+
+function filterCar() {
+  const result = cars
+    .filter(filterBrand)
+    .filter(filterYear)
+    .filter(filterPrice)
+    .filter(filterDoors)
+    .filter(filterTransmission)
+    .filter(filterColor);
+
+  if (result.length) {
+    showCars(result);
+  } else {
+    noResults();
+  }
+}
+
+function noResults() {
+  cleanHTML();
+
+  const noResult = document.createElement(`p`);
+  noResult.classList.add(`alerta`, `error`);
+  noResult.textContent = `No se encontraron resultados, prueba de nuevo`;
+
+  results.appendChild(noResult);
+}
+
+function filterBrand(car) {
+  const { brand } = searchData;
+  if (brand) {
+    return car.brand === brand;
+  }
+
+  return car;
+}
+
+function filterYear(car) {
+  const { year } = searchData;
+
+  if (year) {
+    return car.year === year;
+  }
+
+  return car;
+}
+
+function filterPrice(car) {
+  const { minPrice, maxPrice } = searchData;
+
+  if (minPrice && maxPrice) {
+    return car.price >= minPrice && car.price <= maxPrice;
+  }
+
+  if (minPrice) {
+    return car.price >= minPrice;
+  } else if (maxPrice) {
+    return car.price <= maxPrice;
+  }
+
+  return car;
+}
+
+function filterDoors(car) {
+  const { doors } = searchData;
+
+  if (doors) {
+    return car.doors === parseInt(doors);
+  }
+
+  return car;
+}
+
+function filterTransmission(car) {
+  const { transmission } = searchData;
+
+  if (transmission) {
+    return car.transmission.toLowerCase() == transmission;
+  }
+
+  return car;
+}
+
+function filterColor(car) {
+  const { color } = searchData;
+
+  if (color) {
+    return car.color === color;
+  }
+
+  return car;
 }

@@ -5,16 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CarPoint | Buscador de autos</title>
-    <link
-      rel="preload"
-      fetchpriority="high"
-      as="image"
-      href="assets/img/Background-home.png"
-      type="image/png"
-    />
-    <link rel="preload" as="style" href="styles/styles.css" />
-    <link rel="preload" href="js/app.js" as="script">
-    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
     <!-- BoxIcons -->
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -30,7 +21,7 @@
   </head>
   <body>
     <header class="header">
-      <div class="header__contenedor">
+      <div class="header__barra header__contenedor">
         <!-- Hamburguer Button -->
         <i class="bx bx-menu-alt-left hamburguer" id="hamburguer"></i>
 
@@ -64,16 +55,31 @@
       </div>
     </header>
     <section class="hero" id="inicio">
-      <div class="hero__text hero__contenedor">
-        <h1 class="hero__titulo">
-          Tenemos el <span class="hero__titulo--red">auto</span> que necesitas
-        </h1>
-        <p class="hero__parrafo">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit <br />
-          doloribus, incidunt consectetur veniam explicabo maiores <br />
-          quod libero sed sunt totam reprehenderit pariatur error
-        </p>
-        <a class="hero__btn" href="#categories">Descubrir</a>
+      <div class="hero__grid hero__contenedor">
+        <section class="hero__text">
+          <h1 class="hero__titulo">
+            Tenemos el <span class="hero__titulo--red">auto</span> que necesitas
+          </h1>
+          <p class="hero__parrafo">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
+            <br />
+            doloribus, incidunt consectetur veniam explicabo maiores <br />
+            quod libero sed sunt totam reprehenderit pariatur error
+          </p>
+          <a class="hero__btn" href="#categories">Descubrir</a>
+        </section>
+        <picture>
+          <source srcset="./assets/img/hero-img.avif" type="image/avif" />
+          <source srcset="./assets/img/hero-img.webp" type="image/webp" />
+          <img
+            class="hero__img"
+            loading="lazy"
+            width="500"
+            height="300"
+            src="./assets/img/hero-img.jpg"
+            alt="civic image hero"
+          />
+        </picture>
       </div>
     </section>
     <section id="categories" class="categorias categorias__contenedor">
@@ -222,7 +228,7 @@
           <label for="transmission" class="filtro__label">Transmisión</label>
           <select class="filtro__select" id="transmission">
             <option value="">Seleccione</option>
-            <option value="automatico">Automática</option>
+            <option value="automática">Automática</option>
             <option value="manual">Manual</option>
           </select>
         </div>
@@ -237,7 +243,14 @@
       <div id="results" class="cars__grid"></div>
     </section>
 
-    <footer></footer>
+    <footer class="footer">
+      <div class="footer__grid footer__contenedor">
+
+      </div>
+      <p class="footer__copy">
+        Todos los derechos reservados CarPoint <span class="footerDate"></span>
+      </p>
+    </footer>
 
     <script src="js/db.js"></script>
     <script src="js/app.js"></script>

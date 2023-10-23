@@ -35,7 +35,7 @@ const cars = [
     year: 2024,
     price: 999900,
     doors: 4,
-    color: "Plateado",
+    color: "Gris",
     transmission: `Automática`,
     img: `./assets/img/a4SEDAN`,
   },
@@ -45,7 +45,7 @@ const cars = [
     year: 2023,
     price: 789900,
     doors: 2,
-    color: "Azul",
+    color: "Plateado",
     transmission: `Automática`,
     img: `./assets/img/brzSPORT`,
   },
@@ -55,8 +55,18 @@ const cars = [
     year: 2023,
     price: 789900,
     doors: 4,
-    color: "Rojo",
+    color: "Azul",
     transmission: `Manual`,
     img: `./assets/img/wrxSPORT`,
   },
+  {
+    brand: "Honda",
+    model: "Civic Type R",
+    year: 2018,
+    price: 555900,
+    doors: 4,
+    color: "Blanco",
+    transmission: "Manual",
+    img: "./assets/img/civicTypeR"
+  }
 ];
