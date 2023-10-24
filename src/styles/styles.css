@@ -636,6 +636,7 @@ section {
 }
 
 .nav--footer {
+  align-items: flex-start;
   gap: 1rem;
   margin-top: 1rem;
   background-color: transparent;
@@ -647,7 +648,6 @@ section {
 
 @media (min-width: 768px) {
   .nav--footer {
-    align-items: flex-start;
     flex-flow: column;
   }
 }
@@ -662,7 +662,7 @@ section {
   width: auto;
 }
 
-.nav__link--footer:active{
+.nav__link--footer:active {
   background-color: transparent;
 }
 
