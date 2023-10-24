@@ -206,7 +206,7 @@ section {
   font-weight: 700;
 }
 
-.logo__titulo--red {
+.logo__titulo--blue {
   font-size: inherit;
   font-weight: inherit;
   color: var(--mainColor);
@@ -487,14 +487,13 @@ section {
 }
 
 .alerta {
-  padding: 2rem;
+  padding: 2rem 0;
   text-align: center;
   font-weight: bold;
   text-transform: uppercase;
   color: red;
   font-size: 2rem;
 }
-
 
 .cars__grid {
   display: grid;
@@ -603,10 +602,85 @@ section {
 }
 
 .footer {
-  margin-top: 0;
+  margin-top: 4rem;
   padding-top: 4rem;
   color: var(--gray);
   background-color: var(--black);
+  border-top: 0.5rem solid var(--mainColor);
+}
+
+.footer__grid {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .footer__grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+}
+
+.logo {
+  font-size: 2.5rem;
+  margin: 0 0 0;
+}
+
+.logo__titulo--footer {
+  color: var(--gray);
+}
+
+.nav--social {
+  display: inline-block;
+  color: var(--gray);
+}
+
+.nav--footer {
+  gap: 1rem;
+  margin-top: 1rem;
+  background-color: transparent;
+  height: auto;
+  position: static;
+  clip-path: none;
+  box-shadow: none;
+}
+
+@media (min-width: 768px) {
+  .nav--footer {
+    align-items: flex-start;
+    flex-flow: column;
+  }
+}
+
+.nav__link--footer {
+  font-weight: 400;
+  font-size: 1.6rem;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  color: var(--gray);
+  width: auto;
+}
+
+.nav__link--footer:active{
+  background-color: transparent;
+}
+
+@media (hover: hover) {
+  .nav__link--footer:hover {
+    color: inherit;
+    border-color: var(--gray);
+  }
+}
+
+.nav__link--social {
+  font-size: 2.5rem;
+}
+
+.footer__titulo {
+  display: inline;
+  color: var(--gray);
+  font-weight: 500;
 }
 
 .footer__copy {

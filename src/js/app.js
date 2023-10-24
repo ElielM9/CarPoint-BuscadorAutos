@@ -285,7 +285,7 @@ function noResults() {
   cleanHTML();
 
   const noResult = document.createElement(`p`);
-  noResult.classList.add(`alerta`, `error`);
+  noResult.classList.add(`alerta`);
   noResult.textContent = `No se encontraron resultados, prueba de nuevo`;
 
   results.appendChild(noResult);

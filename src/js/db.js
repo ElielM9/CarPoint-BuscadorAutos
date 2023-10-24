@@ -67,6 +67,16 @@ const cars = [
     doors: 4,
     color: "Blanco",
     transmission: "Manual",
-    img: "./assets/img/civicTypeR"
-  }
+    img: "./assets/img/civicTypeR",
+  },
+  {
+    brand: `Ford`,
+    model: `Mustang GT`,
+    year: 2013, 
+    price: 229900, 
+    doors: 2, 
+    color: `Gris`, 
+    transmission: `Manual`, 
+    img: `./assets/img/mustangGT`
+  },
 ];
