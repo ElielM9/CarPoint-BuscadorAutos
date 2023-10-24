@@ -31,6 +31,7 @@ function startApp() {
   eventListeners();
   showCars(cars);
   fillCarsSelects(cars);
+  actualDate();
 }
 
 function eventListeners() {
@@ -354,4 +355,11 @@ function filterColor(car) {
   }
 
   return car;
+}
+
+function actualDate() {
+  const footerDate = document.querySelector(`.footerDate`);
+  let dateDay = new Date().getFullYear();
+
+  footerDate.textContent = dateDay;
 }
