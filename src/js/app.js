@@ -55,7 +55,7 @@ function eventListeners() {
   });
 
   yearSelect.addEventListener(`change`, (e) => {
-    const selectedValue = parseInt(e.target.value);
+    const selectedValue = e.target.value;
 
     searchData.year = selectedValue;
 
@@ -267,19 +267,46 @@ function createOption(value) {
 }
 
 function filterCar() {
-  const result = cars
-    .filter(filterBrand)
-    .filter(filterYear)
-    .filter(filterPrice)
-    .filter(filterDoors)
-    .filter(filterTransmission)
-    .filter(filterColor);
+  const result = cars.filter(filterBrand).filter(filterCars);
 
   if (result.length) {
     showCars(result);
   } else {
     noResults();
   }
+}
+
+function filterBrand(car) {
+  const { brand } = searchData;
+
+  // Si brand tiene un valor (es decir, el usuario especificó una marca), entonces la condición dentro del if se evaluará como true y el código dentro del bloque {} se ejecutará.
+  if (brand) {
+    return car.brand === brand;
+  }
+
+  return car;
+}
+
+function filterCars(car) {
+  const { year, minPrice, maxPrice, doors, transmission, color } = searchData;
+
+  // Revisa si year NO tiene un valor, ed decir si es undefined o null (lo que significa que el usuario no especificó un año), !year será true y isYearMatch será true. Si year tiene un valor, entonces comparamos car.year === year. Si son iguales, isYearMatch será true; de lo contrario, será false.
+  const isYearMatch = !year || car.year === parseInt(year);
+  const isMinPriceMatch = !minPrice || car.price >= minPrice;
+  const isMaxPriceMatch = !maxPrice || car.price <= maxPrice;
+  const isDoorsMatch = !doors || car.doors === parseInt(doors);
+  const isTransmissionMatch =
+    !transmission || car.transmission.toLowerCase() == transmission;
+  const isColorMatch = !color || car.color === color;
+
+  return (
+    isYearMatch &&
+    isMinPriceMatch &&
+    isMaxPriceMatch &&
+    isDoorsMatch &&
+    isTransmissionMatch &&
+    isColorMatch
+  );
 }
 
 function noResults() {
@@ -290,71 +317,6 @@ function noResults() {
   noResult.textContent = `No se encontraron resultados, prueba de nuevo`;
 
   results.appendChild(noResult);
-}
-
-function filterBrand(car) {
-  const { brand } = searchData;
-  if (brand) {
-    return car.brand === brand;
-  }
-
-  return car;
-}
-
-function filterYear(car) {
-  const { year } = searchData;
-
-  if (year) {
-    return car.year === year;
-  }
-
-  return car;
-}
-
-function filterPrice(car) {
-  const { minPrice, maxPrice } = searchData;
-
-  if (minPrice && maxPrice) {
-    return car.price >= minPrice && car.price <= maxPrice;
-  }
-
-  if (minPrice) {
-    return car.price >= minPrice;
-  } else if (maxPrice) {
-    return car.price <= maxPrice;
-  }
-
-  return car;
-}
-
-function filterDoors(car) {
-  const { doors } = searchData;
-
-  if (doors) {
-    return car.doors === parseInt(doors);
-  }
-
-  return car;
-}
-
-function filterTransmission(car) {
-  const { transmission } = searchData;
-
-  if (transmission) {
-    return car.transmission.toLowerCase() == transmission;
-  }
-
-  return car;
-}
-
-function filterColor(car) {
-  const { color } = searchData;
-
-  if (color) {
-    return car.color === color;
-  }
-
-  return car;
 }
 
 function actualDate() {
